@@ -26,8 +26,17 @@ class MainActivity : Activity() {
         ColorEntry("Gris $percent%", Color.rgb(v, v, v))
     }
 
-    private val colors = listOf(ColorEntry("Blanc", Color.WHITE)) + grayShades + listOf(
-        ColorEntry("Gris bleuté", Color.rgb(40, 50, 65)),
+    // Gris bleuté du plus clair au plus foncé - même teinte (160,180,205),
+    // assombrie par pas pour repérer une dominante colorée dans les tons
+    // sombres (souvent plus visible qu'un simple gris neutre).
+    private val blueGrayShades = listOf(100, 75, 50, 25, 10).map { percent ->
+        val r = 160 * percent / 100
+        val g = 180 * percent / 100
+        val b = 205 * percent / 100
+        ColorEntry("Gris bleuté $percent%", Color.rgb(r, g, b))
+    }
+
+    private val colors = listOf(ColorEntry("Blanc", Color.WHITE)) + grayShades + blueGrayShades + listOf(
         ColorEntry("Rouge", Color.RED),
         ColorEntry("Vert", Color.GREEN),
         ColorEntry("Bleu", Color.BLUE),
