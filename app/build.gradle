@@ -15,8 +15,23 @@ android {
         versionName "1.0"
     }
 
+    // Keystore debug FIXE committé (debug.keystore, mot de passe "android",
+    // outil personnel a usage local) : sans ca, chaque run CI genere un
+    // nouveau keystore debug ephemere avec une signature differente, et
+    // "adb install -r" echoue (INSTALL_FAILED_UPDATE_INCOMPATIBLE) des qu'on
+    // reinstalle une version plus recente sans desinstaller l'ancienne d'abord.
+    signingConfigs {
+        debug {
+            storeFile file("${rootDir}/debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
+    }
+
     buildTypes {
         debug {
+            signingConfig signingConfigs.debug
             minifyEnabled false
         }
     }
