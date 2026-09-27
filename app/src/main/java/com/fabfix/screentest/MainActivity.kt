@@ -19,14 +19,14 @@ class MainActivity : Activity() {
 
     private data class ColorEntry(val name: String, val color: Int)
 
-    private val colors = listOf(
-        ColorEntry("Blanc", Color.WHITE),
-        ColorEntry("Gris 90%", Color.rgb(230, 230, 230)),
-        ColorEntry("Gris 75%", Color.rgb(191, 191, 191)),
-        ColorEntry("Gris 50%", Color.rgb(128, 128, 128)),
-        ColorEntry("Gris 25%", Color.rgb(64, 64, 64)),
-        ColorEntry("Gris 10%", Color.rgb(26, 26, 26)),
-        ColorEntry("Noir", Color.BLACK),
+    // Nuances de gris de 25% a 0% (noir) par pas de 5% - zone la plus utile
+    // pour reperer un ecrasement des noirs (black crush)/banding.
+    private val grayShades = (25 downTo 0 step 5).map { percent ->
+        val v = (percent * 255 / 100)
+        ColorEntry("Gris $percent%", Color.rgb(v, v, v))
+    }
+
+    private val colors = listOf(ColorEntry("Blanc", Color.WHITE)) + grayShades + listOf(
         ColorEntry("Gris bleuté", Color.rgb(90, 105, 125)),
         ColorEntry("Rouge", Color.RED),
         ColorEntry("Vert", Color.GREEN),
