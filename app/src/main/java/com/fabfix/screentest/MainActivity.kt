@@ -21,8 +21,13 @@ class MainActivity : Activity() {
 
     private val colors = listOf(
         ColorEntry("Blanc", Color.WHITE),
-        ColorEntry("Noir", Color.BLACK),
+        ColorEntry("Gris 90%", Color.rgb(230, 230, 230)),
+        ColorEntry("Gris 75%", Color.rgb(191, 191, 191)),
         ColorEntry("Gris 50%", Color.rgb(128, 128, 128)),
+        ColorEntry("Gris 25%", Color.rgb(64, 64, 64)),
+        ColorEntry("Gris 10%", Color.rgb(26, 26, 26)),
+        ColorEntry("Noir", Color.BLACK),
+        ColorEntry("Gris bleuté", Color.rgb(90, 105, 125)),
         ColorEntry("Rouge", Color.RED),
         ColorEntry("Vert", Color.GREEN),
         ColorEntry("Bleu", Color.BLUE),
