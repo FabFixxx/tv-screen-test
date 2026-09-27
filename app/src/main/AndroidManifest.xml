@@ -5,10 +5,13 @@
 
     <application
         android:label="Screen Test"
+        android:icon="@drawable/ic_launcher"
+        android:banner="@drawable/banner"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
         android:allowBackup="false">
         <activity
             android:name=".MainActivity"
+            android:label="Screen Test"
             android:exported="true"
             android:screenOrientation="landscape"
             android:configChanges="orientation|screenSize|keyboardHidden">

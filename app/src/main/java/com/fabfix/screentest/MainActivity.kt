@@ -27,7 +27,7 @@ class MainActivity : Activity() {
     }
 
     private val colors = listOf(ColorEntry("Blanc", Color.WHITE)) + grayShades + listOf(
-        ColorEntry("Gris bleuté", Color.rgb(90, 105, 125)),
+        ColorEntry("Gris bleuté", Color.rgb(40, 50, 65)),
         ColorEntry("Rouge", Color.RED),
         ColorEntry("Vert", Color.GREEN),
         ColorEntry("Bleu", Color.BLUE),
